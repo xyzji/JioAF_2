@@ -1,0 +1,16 @@
+cd C:\Users\whoami\Desktop\dropbear
+adb push dropbearmulti /persist/
+
+adb shell
+
+cd /persist
+chmod +x dropbearmulti
+
+mkdir -p /etc/dropbear
+/persist/dropbearmulti dropbearkey -t rsa -f /etc/dropbear/dropbear_rsa_host_key
+
+/persist/dropbearmulti dropbear -p 22 -r /etc/dropbear/dropbear_rsa_host_key
+
+ssh root@192.168.225.1
+
+oelinux123

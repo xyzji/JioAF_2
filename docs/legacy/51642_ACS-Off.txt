@@ -1,0 +1,23 @@
+# 1. Create the temporary directory
+mkdir -p /tmp/ubi_edit
+
+# 2. Mount the UBIFS partition Read/Write
+mount -t ubifs -o rw /dev/ubi1_0 /tmp/ubi_edit
+
+# 3. Navigate to the target directory
+cd /tmp/ubi_edit/etc/
+
+# 4. Check the file
+ls -l hosts
+
+# 5. Edit the file
+vi hosts
+
+# 6. FORCE WRITE TO FLASH
+sync
+
+# 7. Step completely out of the directory
+cd /
+
+# 8. Safely unmount
+umount /tmp/ubi_edit

@@ -1,0 +1,23 @@
+# 1. Create the temporary directory
+mkdir -p /tmp/ubi_edit
+
+# 2. Mount the UBIFS partition Read/Write
+mount -t ubifs -o rw /dev/ubi1_0 /tmp/ubi_edit
+
+# 3. Navigate to the target directory
+cd /tmp/ubi_edit/usr/etc/versions
+
+# 4. View major_ver
+cat major_ver
+
+# 5. Edit the file
+vi major_ver [edit this to downgrade]
+
+# 6. FORCE WRITE TO FLASH
+sync
+
+# 7. Step completely out of the directory
+cd /
+
+# 8. Safely unmount
+umount /tmp/ubi_edit

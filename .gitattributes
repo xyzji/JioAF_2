@@ -1,0 +1,3 @@
+*.zip -diff
+*.img -diff
+devices/52140/dropbearmulti -diff
